@@ -16,6 +16,7 @@ import {
 } from '../utils/format.js';
 import { msRemaining } from '../utils/time.js';
 import StreamProgress from '../components/StreamProgress.jsx';
+import Badge, { statusTone } from '../components/Badge.jsx';
 import Button from '../components/Button.jsx';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
@@ -94,9 +95,7 @@ export default function StreamDetail() {
           </h1>
           <p className="page-header__subtitle">
             {isSender ? 'Outgoing' : 'Incoming'} ·{' '}
-            <span className={`stream-detail__status stream-detail__status--${stream.status}`}>
-              {stream.status}
-            </span>
+            <Badge tone={statusTone(stream.status)}>{stream.status}</Badge>
           </p>
         </div>
       </div>
