@@ -24,3 +24,22 @@ grants and subscriptions.
 - react-router-dom 6
 - Plain CSS (per-component stylesheets + global CSS variables)
 - Mock Stellar wallet / SDK (no network)
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (defaults to http://localhost:5173).
+
+Copy `.env.example` to `.env` if you want to tweak the demo settings.
+
+### Scripts
+
+| Script            | Description                  |
+| ----------------- | ---------------------------- |
+| `npm run dev`     | Start the Vite dev server.   |
+| `npm run build`   | Build for production.        |
+| `npm run preview` | Preview the production build.|
