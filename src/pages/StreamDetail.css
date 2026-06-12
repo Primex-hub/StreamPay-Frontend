@@ -1,0 +1,60 @@
+.stream-detail__back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.stream-detail__status {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.stream-detail__status--active {
+  color: var(--color-success);
+}
+
+.stream-detail__status--cancelled {
+  color: var(--color-danger);
+}
+
+.stream-detail__status--completed {
+  color: var(--color-primary);
+}
+
+.stream-detail__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stream-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.stream-detail__grid dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+.stream-detail__grid dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stream-detail__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
