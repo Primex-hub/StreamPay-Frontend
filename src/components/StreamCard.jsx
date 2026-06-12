@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getToken } from '../constants/tokens.js';
 import { shortAddress } from '../utils/format.js';
+import { deriveStream } from '../utils/stream.js';
 import { currentAddress } from '../services/streams.js';
 import StreamProgress from './StreamProgress.jsx';
 import './StreamCard.css';
@@ -11,8 +12,7 @@ import './StreamCard.css';
  */
 export default function StreamCard({ stream }) {
   const token = getToken(stream.token);
-  const outgoing = stream.sender === currentAddress();
-  const counterparty = outgoing ? stream.recipient : stream.sender;
+  const { outgoing, counterparty } = deriveStream(stream, currentAddress());
 
   return (
     <Link to={`/streams/${stream.id}`} className="stream-card">
