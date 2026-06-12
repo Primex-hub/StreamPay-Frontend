@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useStreams } from '../hooks/useStreams.js';
 import { useWallet } from '../hooks/useWallet.js';
 import StreamCard from '../components/StreamCard.jsx';
+import DashboardSummary from '../components/DashboardSummary.jsx';
 import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
 import EmptyState from '../components/EmptyState.jsx';
@@ -68,6 +69,8 @@ export default function Dashboard() {
           <Button>New stream</Button>
         </Link>
       </div>
+
+      <DashboardSummary />
 
       <StreamSection title="Incoming" direction="incoming" />
       <StreamSection title="Outgoing" direction="outgoing" />
