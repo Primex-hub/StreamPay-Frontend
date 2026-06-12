@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useInterval } from './useInterval.js';
 
 /**
  * Returns a `now` timestamp that updates on an interval, so components can
@@ -10,11 +11,7 @@ import { useEffect, useState } from 'react';
 export function useNow(interval = 1000, enabled = true) {
   const [now, setNow] = useState(Date.now());
 
-  useEffect(() => {
-    if (!enabled) return undefined;
-    const id = setInterval(() => setNow(Date.now()), interval);
-    return () => clearInterval(id);
-  }, [interval, enabled]);
+  useInterval(() => setNow(Date.now()), enabled ? interval : null);
 
   return now;
 }
