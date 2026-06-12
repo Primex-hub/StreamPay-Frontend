@@ -4,9 +4,9 @@ import {
   getStream,
   withdrawStream,
   cancelStream,
-  streamedSoFar,
   currentAddress,
 } from '../services/streams.js';
+import { deriveStream } from '../utils/stream.js';
 import { getToken } from '../constants/tokens.js';
 import {
   formatDate,
@@ -75,10 +75,10 @@ export default function StreamDetail() {
   if (!stream) return null;
 
   const token = getToken(stream.token);
-  const isSender = stream.sender === currentAddress();
-  const streamed = streamedSoFar(stream);
-  const claimable = Math.max(0, streamed - stream.withdrawn);
-  const remaining = Math.max(0, stream.total - streamed);
+  const { outgoing: isSender, claimable, remaining } = deriveStream(
+    stream,
+    currentAddress()
+  );
   const active = stream.status === 'active';
 
   return (
