@@ -11,6 +11,7 @@ import { getToken } from '../constants/tokens.js';
 import {
   formatDate,
   formatDuration,
+  formatRelative,
   formatToken,
   shortAddress,
 } from '../utils/format.js';
@@ -134,7 +135,13 @@ export default function StreamDetail() {
           </div>
           <div>
             <dt>End</dt>
-            <dd>{formatDate(stream.end)}</dd>
+            <dd>
+              {formatDate(stream.end)}
+              <span className="stream-detail__rel">
+                {' '}
+                · {formatRelative(stream.end)}
+              </span>
+            </dd>
           </div>
           <div>
             <dt>Time left</dt>

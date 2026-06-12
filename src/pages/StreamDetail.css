@@ -36,6 +36,11 @@
   font-variant-numeric: tabular-nums;
 }
 
+.stream-detail__rel {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
 .stream-detail__actions {
   display: flex;
   gap: 0.75rem;

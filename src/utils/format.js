@@ -54,6 +54,19 @@ export function formatDuration(ms) {
 }
 
 /**
+ * Describe a unix-ms timestamp relative to now, e.g. "in 3d 4h" or "2h ago".
+ * @param {number} ts
+ * @param {number} [now]
+ * @returns {string}
+ */
+export function formatRelative(ts, now = Date.now()) {
+  if (!ts) return '—';
+  const diff = ts - now;
+  const label = formatDuration(Math.abs(diff));
+  return diff >= 0 ? `in ${label}` : `${label} ago`;
+}
+
+/**
  * Format a unix-ms timestamp as a readable date-time.
  * @param {number} ts
  * @returns {string}
