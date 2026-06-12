@@ -1,0 +1,20 @@
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.page-header {
+  margin-bottom: 1.75rem;
+}
+
+.page-header__title {
+  font-size: 1.75rem;
+}
+
+.page-header__subtitle {
+  color: var(--color-muted);
+  margin: 0;
+}
