@@ -49,8 +49,40 @@ export function validateWindow(start, end) {
 }
 
 /**
+ * Whether a value is a positive integer (used for whole-token counts).
+ * @param {number|string} value
+ * @returns {boolean}
+ */
+export function isPositiveInt(value) {
+  const n = Number(value);
+  return Number.isInteger(n) && n > 0;
+}
+
+/**
+ * Validate an optional stream label: trimmed length 1..40 when present.
+ * @param {string} value
+ * @returns {string|null}
+ */
+export function validateLabel(value) {
+  if (value == null || value.trim() === '') return null;
+  if (value.trim().length > 40) return 'Label must be 40 characters or fewer';
+  return null;
+}
+
+/**
+ * Whether a unix-ms timestamp is strictly in the future.
+ * @param {number} ts
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isFutureTime(ts, now = Date.now()) {
+  return typeof ts === 'number' && ts > now;
+}
+
+/**
  * Run all CreateStream validators and return an errors object.
- * @param {{recipient:string, amount:(number|string), start:number, end:number}} form
+ * @param {{recipient:string, amount:(number|string), start:number,
+ *   end:number, label?:string}} form
  * @returns {Record<string,string>}
  */
 export function validateStreamForm(form) {
@@ -61,5 +93,7 @@ export function validateStreamForm(form) {
   if (amount) errors.amount = amount;
   const window = validateWindow(form.start, form.end);
   if (window) errors.window = window;
+  const label = validateLabel(form.label);
+  if (label) errors.label = label;
   return errors;
 }
