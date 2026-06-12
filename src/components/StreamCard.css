@@ -26,28 +26,6 @@
   font-weight: 700;
 }
 
-.stream-card__status {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: var(--color-surface-2);
-  color: var(--color-muted);
-}
-
-.stream-card__status--active {
-  color: var(--color-success);
-}
-
-.stream-card__status--cancelled {
-  color: var(--color-danger);
-}
-
-.stream-card__status--completed {
-  color: var(--color-primary);
-}
-
 .stream-card__label {
   font-size: 1.05rem;
   font-weight: 600;

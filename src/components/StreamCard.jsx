@@ -4,6 +4,7 @@ import { shortAddress } from '../utils/format.js';
 import { deriveStream } from '../utils/stream.js';
 import { currentAddress } from '../services/streams.js';
 import StreamProgress from './StreamProgress.jsx';
+import Badge, { statusTone } from './Badge.jsx';
 import './StreamCard.css';
 
 /**
@@ -20,9 +21,7 @@ export default function StreamCard({ stream }) {
         <span className="stream-card__token">
           {token?.icon} {stream.token}
         </span>
-        <span className={`stream-card__status stream-card__status--${stream.status}`}>
-          {stream.status}
-        </span>
+        <Badge tone={statusTone(stream.status)}>{stream.status}</Badge>
       </div>
 
       <div className="stream-card__label">{stream.label}</div>
