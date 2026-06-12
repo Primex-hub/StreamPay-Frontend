@@ -1,5 +1,6 @@
 import { elapsedFraction } from '../utils/time.js';
 import { formatPercent, formatToken } from '../utils/format.js';
+import { tokenColor } from '../constants/tokens.js';
 import { useNow } from '../hooks/useNow.js';
 import './StreamProgress.css';
 
@@ -22,7 +23,10 @@ export default function StreamProgress({
       <div className="stream-progress__bar">
         <div
           className="stream-progress__fill"
-          style={{ width: formatPercent(fraction) }}
+          style={{
+            width: formatPercent(fraction),
+            background: tokenColor(stream.token),
+          }}
         />
       </div>
       {showCounter && (
